@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C94E562D-D8A1-4326-9DAC-9F6F7CF4DB72}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GNova.Geometry</RootNamespace>
+    <AssemblyName>GNova.Geometry</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GeoAPI, Version=1.7.5.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.Core.1.7.5\lib\net45\GeoAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.15.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.Core.1.15.0\lib\net45\NetTopologySuite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Index\IGeometryIndex.cs" />
+    <Compile Include="IO\GeometryIOException.cs" />
+    <Compile Include="IO\IGeometryReader.cs" />
+    <Compile Include="IO\IGeometryWriter.cs" />
+    <Compile Include="Model\AbstractGeometry.cs" />
+    <Compile Include="Model\BoundingBox.cs" />
+    <Compile Include="Model\Coordinate.cs" />
+    <Compile Include="Model\GeometryType.cs" />
+    <Compile Include="Model\IGeometry.cs" />
+    <Compile Include="Model\IGeometryCollection.cs" />
+    <Compile Include="Model\IGeometryFactory.cs" />
+    <Compile Include="Model\ILinearRing.cs" />
+    <Compile Include="Model\ILineString.cs" />
+    <Compile Include="Model\IMultiLineString.cs" />
+    <Compile Include="Model\IMultiPoint.cs" />
+    <Compile Include="Model\IMultiPolygon.cs" />
+    <Compile Include="Model\IPoint.cs" />
+    <Compile Include="Model\IPolygon.cs" />
+    <Compile Include="Model\NTS\AbstractGeometryAdaptor.cs" />
+    <Compile Include="Model\NTS\GeometryFactoryAdaptor.cs" />
+    <Compile Include="Model\NTS\GeometryFactoryAdaptorEx.cs" />
+    <Compile Include="Model\Operator\ICollectionOperator.cs" />
+    <Compile Include="Model\Operator\IRelationalOperator.cs" />
+    <Compile Include="Model\Operator\ITopologicalOperator.cs" />
+    <Compile Include="Model\Pattern\ILineal.cs" />
+    <Compile Include="Model\Pattern\IPolygonal.cs" />
+    <Compile Include="Model\Pattern\IPolyhedral.cs" />
+    <Compile Include="Model\Pattern\IPuntal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GNova.Core\GNova.Core.csproj">
+      <Project>{88850d0e-b3c3-4673-af1c-bc7349f9bc6a}</Project>
+      <Name>GNova.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
